@@ -8,6 +8,24 @@ reviewing the results, and reporting commodity prices and stock to **UEX**.
 [日本語](README.ja.md) · [Download](https://github.com/nakacch/VerseTrade-Relay/releases) ·
 [Quick start](docs/QUICKSTART.md) · [Report an issue](https://github.com/nakacch/VerseTrade-Relay/issues)
 
+## See it in action
+
+**Capture continuously → build the list → inspect evidence → test (optional) → submit.**
+
+Testing can be skipped depending on the submission mode. The default test-first
+mode requires a successful test.
+
+![Consecutive captures at the same terminal add commodities to one list; hover a cell for its evidence, then review, test and submit](assets/demo/workflow-en.gif)
+
+When the next capture is recognized as the same terminal, new commodities are
+added to the current list. Hover individual cells to see their supporting image
+crops and OCR confidence, or select a cell for the persistent detail pane.
+
+Edited workflow demo: waiting time is shortened, local OCR results are replayed,
+and submission responses/history are simulated. No report was sent to UEX.
+The app's real test and production actions both contact UEX.
+Prefer still images? See the [illustrated quick start](docs/QUICKSTART.md#2-read-and-review).
+
 ## Features
 
 - Watch your screenshot folder and automatically read new captures as you take them.
@@ -21,7 +39,7 @@ reviewing the results, and reporting commodity prices and stock to **UEX**.
   prices/stock through colored borders and difference values.
 - Identify reporter edits with pencil markers and inspect the reasons. Explanatory
   notes for edits and dictionary-based conversions are added to UEX reports automatically.
-- Test reports before production submission and keep submission history.
+- Optional test reports (depending on submission mode), production submission and history.
 - English/Japanese interface; System, Light, Dark and Slate themes.
 
 ## Download and requirements
@@ -71,14 +89,16 @@ lets you verify the executable.
 7. Check the submission mode and the supporting screenshot. Screenshot attachments
    are required for reports, including test submissions, and cannot be disabled.
    In the default test-first
-   mode, pass a test before confirming production submission.
+   mode, pass a test before confirming production submission. To skip testing,
+   select **Test optional** or **Production only** in **Settings → Sending** and save.
 
 See the [quick start](docs/QUICKSTART.md) for editing, recovery and updates.
 
 ## Data and privacy
 
 OCR runs locally. Network access is used for model downloads, UEX catalog/reference
-queries, requested updates and UEX report/status requests. Each report, including
+queries, startup/periodic update checks, requested update downloads and UEX
+report/status requests. Each report, including
 a test submission, sends its supporting screenshot to UEX. The attachment uses
 the original capture, converted to JPEG, rather than the image corrected for OCR.
 
@@ -118,5 +138,7 @@ source is maintained separately and is not published here. The application is
 not offered under an open-source license. Third-party components retain their
 own licenses; see [notices](docs/THIRD_PARTY.md). Full license texts are saved as
 `cache\bundled\<payload-hash>\THIRD-PARTY-NOTICES.txt` under the local app data folder.
-Windows fonts, game screenshots and localization files are not redistributed.
+Windows font files, original game captures and localization files are not bundled.
+The walkthrough shows a maintainer-provided Star Citizen capture inside the app;
+game imagery belongs to its respective rights holders.
 This is an independent community tool, not an official Star Citizen or UEX product.

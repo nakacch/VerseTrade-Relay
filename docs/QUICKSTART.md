@@ -33,6 +33,28 @@ download models. Model downloads and catalog refreshes are separate operations.
 
 ## 2. Read and review
 
+![The next screenshot at the same terminal automatically grows the list from four rows to seven](../assets/demo/continuous-en.png)
+
+In this example, the first capture produces four rows for **Everus Harbor**.
+Scroll the in-game list and take another screenshot at the same terminal: when
+recognized as that terminal, the app adds new commodities to the current list.
+The example grows to **seven rows and two images**. Carbon appears in both captures
+and is kept as one row. Existing rows remain in place.
+
+![A price-cell tooltip showing its source crop and OCR confidence](../assets/demo/tooltip-en.png)
+
+Hover an individual cell to inspect the **image crop supporting that value** and
+its OCR confidence. Enable **Show review tooltips** and **Show images in tooltips**
+in **Settings → Appearance** if they are off. These images follow each cell's evidence, which can come from
+different captures as the list grows.
+
+![Review page with seven recognized commodities and the selected price's evidence crop](../assets/demo/review-en.png)
+
+The selected price is highlighted in the table; its source crop and OCR value
+appear on the left. The original image stays above it, and validation/submission
+controls remain at the bottom. Click the image for a larger view and select cells
+to check each value. The example's game/OCR language is Japanese; the UI is English.
+
 1. Check that the app is watching your screenshot folder and that LIVE/PTU matches
    the environment you are playing in.
 2. On the **in-game trading terminal**, set the **location field on the left** to
@@ -70,7 +92,17 @@ You can also use **Select images** or drag and drop existing screenshots onto th
 app. Folder watching detects new files, so use these options for older screenshots.
 If a new image needs its destination confirmed, follow the on-screen prompt.
 
-## 3. Test and submit
+## 3. Testing (optional) and production submission
+
+Testing is **optional, depending on the submission mode**. To skip it, select
+**Test optional** or **Production only** in **Settings → Sending** and save.
+The default test-first mode requires a successful test.
+
+![Production confirmation with destination, LIVE environment, seven rows and two evidence images](../assets/demo/confirmation-en.png)
+
+After a successful test of the same contents, **Send production** opens this final
+confirmation in the default mode. Check the destination and attached image before
+using **Send to production**. The illustration uses a simulated test response.
 
 Check the terminal, environment, direction, game version, report values and supporting
 image. **A screenshot is required for every report, including test submissions;
@@ -78,7 +110,7 @@ attachment cannot be disabled.** The app attaches the original capture converted
 to JPEG, not the image corrected for OCR. Missing or changed evidence blocks submission.
 Use input validation to resolve blocking errors. Check the selected
 submission mode: the default test-first mode requires a successful test of the
-same contents before production. Changes to tested values or generated report
+same contents before production. In this mode, changes to tested values or generated report
 explanations require another test.
 Other modes follow the controls and confirmation shown in the app.
 
@@ -104,12 +136,24 @@ unsaved-changes prompt let you choose what to keep. Themes preview immediately.
 History is a separate page with all/test/production/unknown filters and report
 status tools. Preserve history during updates, especially unresolved submissions.
 
+![Submission history showing separate demonstration test and production entries](../assets/demo/history-en.png)
+
+These are simulated entries with illustrative report IDs. A pending production
+entry is not an approval; use **Check status** to follow its status in real use.
+For a motion overview, return to the [README demo](../README.md#see-it-in-action).
+
 ## 5. Update, backup and uninstall
 
 Close the app before updating. Back up `%APPDATA%\VerseTrade-Relay\`, download the
 new EXE, verify its checksum and save it into a new folder. Launch the
-new EXE. Existing user data is separate from the executable. The current preview
-does not configure an automatic update feed; check Releases manually.
+new EXE. Existing user data is separate from the executable.
+
+The app checks published GitHub releases at startup. Once distribution is public,
+new versions can be downloaded and verified from **Settings → Updates**; installation
+is manual. Minor/patch notifications can be disabled or a version skipped. Major
+updates are announced at each startup and cannot be skipped. While the repository
+is private, anonymous checks find no update: download from Releases using your
+authorized GitHub account. No GitHub token is entered into the app.
 
 To verify the executable in PowerShell:
 
@@ -140,7 +184,7 @@ To uninstall:
 | Required support files fail to load | Install Microsoft's x64 Visual C++ runtime; clear an obsolete explicit DLL setting, close and restart. Check cache write access. |
 | Missing Japanese text | Check that Japanese-capable Windows UI fonts are installed. Fonts are not bundled. |
 | Incorrect names/locations | Check the selected localization, environment, catalog and terminal; inspect observations and candidates. |
-| Submit is disabled | Resolve validation errors, pending items, missing credentials or a missing/stale successful test; inspect the shown reason. |
+| Submit is disabled | Resolve validation errors, pending items, missing credentials or a missing/stale successful test in a test-required mode; inspect the shown reason. |
 | Unknown production result | Reconcile in History before attempting a resend. |
 | App closes unexpectedly | Check `%APPDATA%\VerseTrade-Relay\logs\versetrade-relay.log` and report the version and reproduction steps. |
 
