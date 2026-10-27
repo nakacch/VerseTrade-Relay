@@ -49,6 +49,16 @@ download models. Model downloads and catalog refreshes are separate operations.
 6. Use image enlargement for unreadable details. Changing the viewed image does
    not automatically change the image attached to a report. Check attachments explicitly.
 
+A pencil marker identifies a value changed by the reporter, including adopting a
+different OCR candidate or observation. Hover over the marker to inspect the reason
+and the recorded before/after values. Confirming an unchanged value does not create
+a reporter-change marker. Reverting to the original value removes that change's marker.
+
+Reports automatically include English explanations of applicable reporter changes
+and recorded dictionary conversions. Quoted OCR/dictionary text keeps its original
+language. These explanations are added alongside your own notes. An annotated item
+may be sent as an individual report, so more annotated items can mean more requests.
+
 OCR confidence text colors and UEX difference borders represent different checks.
 Low OCR confidence changes the value's text color; UEX price/stock differences
 are shown with colored borders and difference values.
@@ -62,11 +72,18 @@ If a new image needs its destination confirmed, follow the on-screen prompt.
 
 ## 3. Test and submit
 
-Check the terminal, environment, direction, game version, report values and image
-attachments. Use input validation to resolve blocking errors. Check the selected
+Check the terminal, environment, direction, game version, report values and supporting
+image. **A screenshot is required for every report, including test submissions;
+attachment cannot be disabled.** The app attaches the original capture converted
+to JPEG, not the image corrected for OCR. Missing or changed evidence blocks submission.
+Use input validation to resolve blocking errors. Check the selected
 submission mode: the default test-first mode requires a successful test of the
-same contents before production. Editing tested values requires another test.
+same contents before production. Changes to tested values or generated report
+explanations require another test.
 Other modes follow the controls and confirmation shown in the app.
+
+UEX requests follow the saved game language, independently of the app interface
+language. Automatically generated explanations remain in English.
 
 Test submission contacts UEX when run from the app; it is separate from production
 reporting. Confirm production only after reviewing the summary. Keep the app open
@@ -103,7 +120,7 @@ Get-FileHash .\VerseTrade-Relay.exe -Algorithm SHA256
 Compare it with the matching `.exe.sha256` asset from the same release.
 Checksums detect differing bytes; the app is unsigned.
 
-Saved secrets may not decrypt under another Windows account.
+Your UEX user secret is protected by **Windows data protection**.
 Backups contain private history, paths and protected credentials: keep them private.
 
 To uninstall:

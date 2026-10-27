@@ -19,6 +19,8 @@ reviewing the results, and reporting commodity prices and stock to **UEX**.
   inventory status and cargo sizes.
 - Spot low OCR confidence through text colors and differences from UEX reference
   prices/stock through colored borders and difference values.
+- Identify reporter edits with pencil markers and inspect the reasons. Explanatory
+  notes for edits and dictionary-based conversions are added to UEX reports automatically.
 - Test reports before production submission and keep submission history.
 - English/Japanese interface; System, Light, Dark and Slate themes.
 
@@ -42,10 +44,10 @@ your user data folder. **OCR models are not bundled**:
 select and download them for your language in the welcome page or **Settings → OCR**.
 
 The app is designed primarily for **ONNX-based OCR**, with speed and recognition
-accuracy in mind. Required ONNX support is included in the EXE; only your selected
-models can be downloaded directly inside the app, from welcome setup or **Settings → OCR**.
-Tesseract is an optional alternative and requires a
-separate installation. Speed and accuracy depend on the model, language and image.
+accuracy in mind. Required ONNX support is included in the EXE. Choose and download
+models directly inside the app, from welcome setup or **Settings → OCR**.
+Tesseract is an optional alternative and requires a separate installation.
+Speed and accuracy depend on the model, language and image.
 
 Read the manuals here on GitHub. Third-party license notices are included inside
 the EXE and saved in the app cache at startup. An optional `.exe.sha256` download
@@ -66,7 +68,9 @@ lets you verify the executable.
 6. The app automatically reads the new screenshots from the watched folder.
    Normally, you do not need to select a terminal in the app or import images
    manually. Check the results against the images and correct them as needed.
-7. Check the submission mode and attachment setting. In the default test-first
+7. Check the submission mode and the supporting screenshot. Screenshot attachments
+   are required for reports, including test submissions, and cannot be disabled.
+   In the default test-first
    mode, pass a test before confirming production submission.
 
 See the [quick start](docs/QUICKSTART.md) for editing, recovery and updates.
@@ -74,18 +78,20 @@ See the [quick start](docs/QUICKSTART.md) for editing, recovery and updates.
 ## Data and privacy
 
 OCR runs locally. Network access is used for model downloads, UEX catalog/reference
-queries, requested updates and UEX report/status requests. Screenshot attachments,
-when enabled, send the original screenshot to UEX during submission.
+queries, requested updates and UEX report/status requests. Each report, including
+a test submission, sends its supporting screenshot to UEX. The attachment uses
+the original capture, converted to JPEG, rather than the image corrected for OCR.
 
 | Data | Default location |
 | --- | --- |
 | Settings, history and logs | `%APPDATA%\VerseTrade-Relay\` |
 | Downloaded ONNX models | `%APPDATA%\VerseTrade-Relay\ocr-models\` |
-| Image copies and support files | `%LOCALAPPDATA%\VerseTrade-Relay\cache\` |
+| Cache and support files | `%LOCALAPPDATA%\VerseTrade-Relay\cache\` |
 
-The UEX user secret is encrypted for your Windows user account.
-Working image copies can remain in the cache. Replacing/deleting the EXE does not
-remove these folders. See the manual before resetting app data.
+Your UEX user secret is protected by **Windows data protection**.
+The app references your original screenshot files. Keep them available and unchanged
+until submission. Earlier versions may have left image copies in the cache.
+Replacing/deleting the EXE does not remove these folders. See the manual before resetting app data.
 
 ## Limitations
 
@@ -94,8 +100,8 @@ remove these folders. See the manual before resetting app data.
 - A production result may be unknown after connection failure. Reconcile it in
   history before retrying. Unknown results are not automatically resent.
 - The app does not automate in-game actions.
-- The initial release is a packaging preview. Live UEX submission and acceptance
-  across all languages and Windows environments are not claimed as verified.
+- This preview has not been validated with live UEX submission or across every
+  language and Windows environment.
 
 ## Issues and feature requests
 
