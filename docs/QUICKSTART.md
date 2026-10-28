@@ -13,6 +13,10 @@ Use **Find standard game installations** or **Browse game folder** to find your
 installed game's translation files. Set **LIVE global.ini** or **PTU global.ini**
 to the `global.ini` for the language you use in that installation. For example,
 a localization file is under `<game installation>/data/Localization/<language>/global.ini`.
+
+If the active installation has no external `global.ini`, the app uses its bundled
+English vocabulary. For another game language, select that language's file.
+Saving preserves your selected OCR language and displays the saved value.
 Leave the other environment empty if you do not use it.
 
 The app uses entries in this translation file to match localized place and item
@@ -70,6 +74,16 @@ to check each value. The example's game/OCR language is Japanese; the UI is Engl
    only changes displayed rows; it does not remove hidden rows from submission.
 6. Use image enlargement for unreadable details. Changing the viewed image does
    not automatically change the image attached to a report. Check attachments explicitly.
+
+To correct cargo sizes, select the **Cargo SCU** cell, then select any combination
+of 1, 2, 4, 8, 16, 24 and 32 SCU in the left details and press **Confirm cargo sizes**.
+Scroll the details on smaller windows. **Cancel cargo edits** discards the pending
+selection. **Omit cargo sizes** omits only the size declaration, leaving price and
+inventory reporting available. Unreviewed OCR sizes are not sent automatically;
+an empty selection is never reported as no available sizes.
+Confirmed sizes belong to each row and survive rereading and page changes.
+Different size sets may require separate requests. Manual corrections receive
+automatic English notes; the submission confirmation shows sizes and notes per commodity.
 
 A pencil marker identifies a value changed by the reporter, including adopting a
 different OCR candidate or observation. Hover over the marker to inspect the reason

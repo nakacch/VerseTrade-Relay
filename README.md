@@ -75,6 +75,7 @@ lets you verify the executable.
 
 1. In welcome setup, choose LIVE or PTU and select that installation's translation
    file (`global.ini`) for your game language, then check the OCR language.
+   Bundled English vocabulary is used when no external file is available.
 2. In the app's welcome setup or **Settings → OCR**, select your models and use
    **download and verify**.
 3. Refresh the commodity/terminal catalog in **Settings → UEX connection**.
