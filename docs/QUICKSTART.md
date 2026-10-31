@@ -16,7 +16,6 @@ a localization file is under `<game installation>/data/Localization/<language>/g
 
 If the active installation has no external `global.ini`, the app uses its bundled
 English vocabulary. For another game language, select that language's file.
-Saving preserves your selected OCR language and displays the saved value.
 Leave the other environment empty if you do not use it.
 
 The app uses entries in this translation file to match localized place and item
@@ -24,6 +23,15 @@ names to UEX, and automatically follows changes to the file while running.
 The app interface language and game/OCR language are separate settings.
 ONNX is the recommended OCR option. Select models suitable for your game language,
 then use **download and verify** in the app's welcome setup or **Settings → OCR**.
+
+In **Settings → OCR**, choose automatic language selection from the active
+dictionary or a manual reading language. **Configure language models…** opens
+the per-language editor. Changing its target language only changes which model
+settings you edit. Choose ONNX or Tesseract, download/validate a model or select
+an external Tesseract model, then use **Apply to settings** and **Save settings**.
+**Reset this language** resets only that language's model choices. **Cancel**
+discards dialog edits. Model downloads do not save your settings automatically.
+
 ONNX support is included in the EXE, and the app downloads your selected models
 for you. You can reopen first-run setup from Settings.
 

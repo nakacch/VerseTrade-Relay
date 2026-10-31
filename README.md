@@ -78,6 +78,8 @@ lets you verify the executable.
    Bundled English vocabulary is used when no external file is available.
 2. In the app's welcome setup or **Settings → OCR**, select your models and use
    **download and verify**.
+   OCR settings offer automatic/manual reading languages and **Configure language models…**
+   for separate per-language model choices. Apply dialog edits, then save settings.
 3. Refresh the commodity/terminal catalog in **Settings → UEX connection**.
 4. Set the watch folder to the folder where your game saves screenshots, confirm
    LIVE/PTU, and save settings. Leave **Automatically read captures** enabled.
