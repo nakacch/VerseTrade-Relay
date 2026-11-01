@@ -8,6 +8,9 @@ reviewing the results, and reporting commodity prices and stock to **UEX**.
 [日本語](README.ja.md) · [Download](https://github.com/nakacch/VerseTrade-Relay/releases) ·
 [Quick start](docs/QUICKSTART.md) · [Report an issue](https://github.com/nakacch/VerseTrade-Relay/issues)
 
+[0.6.1 preview](https://github.com/nakacch/VerseTrade-Relay/releases/tag/v0.6.1)
+fixes wrapped ammunition names so Size 1–7 remain separate commodities.
+
 ## See it in action
 
 **Capture continuously → build the list → inspect evidence → test (optional) → submit.**

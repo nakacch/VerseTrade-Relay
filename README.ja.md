@@ -7,6 +7,9 @@
 [English](README.md) · [ダウンロード](https://github.com/nakacch/VerseTrade-Relay/releases) ·
 [簡易マニュアル](docs/QUICKSTART.ja.md) · [不具合報告](https://github.com/nakacch/VerseTrade-Relay/issues)
 
+[0.6.1プレリリース](https://github.com/nakacch/VerseTrade-Relay/releases/tag/v0.6.1)では、
+弾薬の品名が2行になる場合も、Size 1〜7を別の商品として読み取るよう修正しました。
+
 ## 操作の流れ
 
 **連続撮影 → 商品リストに追加 → 根拠画像を確認 → テスト（任意） → 本番送信。**
