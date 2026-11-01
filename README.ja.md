@@ -7,8 +7,8 @@
 [English](README.md) · [ダウンロード](https://github.com/nakacch/VerseTrade-Relay/releases) ·
 [簡易マニュアル](docs/QUICKSTART.ja.md) · [不具合報告](https://github.com/nakacch/VerseTrade-Relay/issues)
 
-[0.6.1プレリリース](https://github.com/nakacch/VerseTrade-Relay/releases/tag/v0.6.1)では、
-弾薬の品名が2行になる場合も、Size 1〜7を別の商品として読み取るよう修正しました。
+[0.6.2プレリリース](https://github.com/nakacch/VerseTrade-Relay/releases/tag/v0.6.2)では、
+レポートへの自動コメント付加をすべて一時停止しました。自分で入力した補足は引き続き送信します。
 
 ## 操作の流れ
 
@@ -37,7 +37,7 @@
 - 元画像・切り出しを見ながら商品、価格、在庫、状態、貨物サイズを編集。
 - OCR確度が低い値は文字色で、UEXの価格・在庫との乖離は色付きの枠と差分値で見やすく表示。
 - 報告者による変更は鉛筆マークで表示し、変更理由を確認できます。
-  手動修正や辞書による変換の説明は、UEXへのレポートに自動で付記します。
+  0.6.2では自動コメント付加を一時停止しています。自分で入力した補足は保持します。
 - テスト送信（任意・送信モードによる）、本番送信、送信履歴。
 - 日本語・英語のUIとSystem / Light / Dark / Slateのテーマ。
 

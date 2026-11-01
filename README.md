@@ -8,8 +8,8 @@ reviewing the results, and reporting commodity prices and stock to **UEX**.
 [日本語](README.ja.md) · [Download](https://github.com/nakacch/VerseTrade-Relay/releases) ·
 [Quick start](docs/QUICKSTART.md) · [Report an issue](https://github.com/nakacch/VerseTrade-Relay/issues)
 
-[0.6.1 preview](https://github.com/nakacch/VerseTrade-Relay/releases/tag/v0.6.1)
-fixes wrapped ammunition names so Size 1–7 remain separate commodities.
+[0.6.2 preview](https://github.com/nakacch/VerseTrade-Relay/releases/tag/v0.6.2)
+temporarily disables all automatically added report comments. Your own notes are preserved.
 
 ## See it in action
 
@@ -40,8 +40,8 @@ Prefer still images? See the [illustrated quick start](docs/QUICKSTART.md#2-read
   inventory status and cargo sizes.
 - Spot low OCR confidence through text colors and differences from UEX reference
   prices/stock through colored borders and difference values.
-- Identify reporter edits with pencil markers and inspect the reasons. Explanatory
-  notes for edits and dictionary-based conversions are added to UEX reports automatically.
+- Identify reporter edits with pencil markers and inspect the reasons locally.
+  Automatic report comments are temporarily disabled in 0.6.2; your own notes are preserved.
 - Optional test reports (depending on submission mode), production submission and history.
 - English/Japanese interface; System, Light, Dark and Slate themes.
 

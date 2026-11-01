@@ -90,18 +90,17 @@ selection. **Omit cargo sizes** omits only the size declaration, leaving price a
 inventory reporting available. Unreviewed OCR sizes are not sent automatically;
 an empty selection is never reported as no available sizes.
 Confirmed sizes belong to each row and survive rereading and page changes.
-Different size sets may require separate requests. Manual corrections receive
-automatic English notes; the submission confirmation shows sizes and notes per commodity.
+Different size sets may require separate requests. The submission confirmation
+shows the sizes per commodity. Automatic correction comments are paused in 0.6.2.
 
 A pencil marker identifies a value changed by the reporter, including adopting a
 different OCR candidate or observation. Hover over the marker to inspect the reason
 and the recorded before/after values. Confirming an unchanged value does not create
 a reporter-change marker. Reverting to the original value removes that change's marker.
 
-Reports automatically include English explanations of applicable reporter changes
-and recorded dictionary conversions. Quoted OCR/dictionary text keeps its original
-language. These explanations are added alongside your own notes. An annotated item
-may be sent as an individual report, so more annotated items can mean more requests.
+Automatic explanations of reporter changes and dictionary conversions are
+temporarily disabled in 0.6.2, regardless of OCR confidence or dictionary source.
+Your own notes are still sent. Recorded evidence and change reasons remain available locally.
 
 OCR confidence text colors and UEX difference borders represent different checks.
 Low OCR confidence changes the value's text color; UEX price/stock differences
@@ -132,12 +131,13 @@ attachment cannot be disabled.** The app attaches the original capture converted
 to JPEG, not the image corrected for OCR. Missing or changed evidence blocks submission.
 Use input validation to resolve blocking errors. Check the selected
 submission mode: the default test-first mode requires a successful test of the
-same contents before production. In this mode, changes to tested values or generated report
-explanations require another test.
+same contents before production. In this mode, changes to tested values or
+user-entered notes require another test.
 Other modes follow the controls and confirmation shown in the app.
 
 UEX requests follow the saved game language, independently of the app interface
-language. Automatically generated explanations remain in English.
+language. Automatic report comments are temporarily disabled in 0.6.2,
+regardless of the interface language.
 
 Test submission contacts UEX when run from the app; it is separate from production
 reporting. Confirm production only after reviewing the summary. Keep the app open
