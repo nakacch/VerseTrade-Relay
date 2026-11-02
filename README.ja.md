@@ -7,8 +7,9 @@
 [English](README.md) · [ダウンロード](https://github.com/nakacch/VerseTrade-Relay/releases) ·
 [簡易マニュアル](docs/QUICKSTART.ja.md) · [不具合報告](https://github.com/nakacch/VerseTrade-Relay/issues)
 
-[0.6.2プレリリース](https://github.com/nakacch/VerseTrade-Relay/releases/tag/v0.6.2)では、
-レポートへの自動コメント付加をすべて一時停止しました。自分で入力した補足は引き続き送信します。
+[0.6.3プレリリース](https://github.com/nakacch/VerseTrade-Relay/releases/tag/v0.6.3)では、
+**Pyro星系の貿易ターミナルに仮対応**しました。
+在庫状態や貨物サイズには読み取り不足が残るため、元画像を確認して必要に応じて修正してください。
 
 ## 操作の流れ
 
@@ -37,7 +38,7 @@
 - 元画像・切り出しを見ながら商品、価格、在庫、状態、貨物サイズを編集。
 - OCR確度が低い値は文字色で、UEXの価格・在庫との乖離は色付きの枠と差分値で見やすく表示。
 - 報告者による変更は鉛筆マークで表示し、変更理由を確認できます。
-  0.6.2では自動コメント付加を一時停止しています。自分で入力した補足は保持します。
+  自動コメント付加の一時停止は継続しています。自分で入力した補足は保持します。
 - テスト送信（任意・送信モードによる）、本番送信、送信履歴。
 - 日本語・英語のUIとSystem / Light / Dark / Slateのテーマ。
 

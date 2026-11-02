@@ -91,7 +91,7 @@ inventory reporting available. Unreviewed OCR sizes are not sent automatically;
 an empty selection is never reported as no available sizes.
 Confirmed sizes belong to each row and survive rereading and page changes.
 Different size sets may require separate requests. The submission confirmation
-shows the sizes per commodity. Automatic correction comments are paused in 0.6.2.
+shows the sizes per commodity. Automatic correction comments remain paused.
 
 A pencil marker identifies a value changed by the reporter, including adopting a
 different OCR candidate or observation. Hover over the marker to inspect the reason
@@ -99,7 +99,7 @@ and the recorded before/after values. Confirming an unchanged value does not cre
 a reporter-change marker. Reverting to the original value removes that change's marker.
 
 Automatic explanations of reporter changes and dictionary conversions are
-temporarily disabled in 0.6.2, regardless of OCR confidence or dictionary source.
+temporarily disabled, regardless of OCR confidence or dictionary source.
 Your own notes are still sent. Recorded evidence and change reasons remain available locally.
 
 OCR confidence text colors and UEX difference borders represent different checks.
@@ -136,7 +136,7 @@ user-entered notes require another test.
 Other modes follow the controls and confirmation shown in the app.
 
 UEX requests follow the saved game language, independently of the app interface
-language. Automatic report comments are temporarily disabled in 0.6.2,
+language. Automatic report comments are temporarily disabled,
 regardless of the interface language.
 
 Test submission contacts UEX when run from the app; it is separate from production
