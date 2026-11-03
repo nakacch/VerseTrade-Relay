@@ -170,12 +170,11 @@ Close the app before updating. Back up `%APPDATA%\VerseTrade-Relay\`, download t
 new EXE, verify its checksum and save it into a new folder. Launch the
 new EXE. Existing user data is separate from the executable.
 
-The app checks published GitHub releases at startup. Once distribution is public,
-new versions can be downloaded and verified from **Settings → Updates**; installation
+The app checks published GitHub releases at startup.
+New versions can be downloaded and verified from **Settings → Updates**; installation
 is manual. Minor/patch notifications can be disabled or a version skipped. Major
-updates are announced at each startup and cannot be skipped. While the repository
-is private, anonymous checks find no update: download from Releases using your
-authorized GitHub account. No GitHub token is entered into the app.
+updates are announced at each startup and cannot be skipped.
+No GitHub token is entered into the app.
 
 To verify the executable in PowerShell:
 

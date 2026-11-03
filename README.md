@@ -8,8 +8,10 @@ reviewing the results, and reporting commodity prices and stock to **UEX**.
 [日本語](README.ja.md) · [Download](https://github.com/nakacch/VerseTrade-Relay/releases) ·
 [Quick start](docs/QUICKSTART.md) · [Report an issue](https://github.com/nakacch/VerseTrade-Relay/issues)
 
-[0.6.3 preview](https://github.com/nakacch/VerseTrade-Relay/releases/tag/v0.6.3)
-adds preliminary support for **Pyro-system trading terminals** with orange screens.
+[0.6.4 preview](https://github.com/nakacch/VerseTrade-Relay/releases/tag/v0.6.4)
+improves Japanese OCR defaults and detection of commodities at the edges of the visible list,
+and releases idle OCR engines to reduce retained memory.
+Preliminary support for **Pyro-system trading terminals** with orange screens continues.
 Check inventory status and cargo sizes carefully; some readings still need manual review.
 
 ## See it in action
