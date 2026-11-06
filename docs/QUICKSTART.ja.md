@@ -2,6 +2,9 @@
 
 [README](../README.ja.md) · [English](QUICKSTART.md)
 
+0.6.5では、**STANTON星系の一部の赤系交易端末**の読み取りに仮対応しました。
+対応範囲は限定的です。送信前に商品名・価格・在庫・貨物サイズを元画像と照合してください。
+
 ## 1. 導入と初期設定
 
 [Releases](https://github.com/nakacch/VerseTrade-Relay/releases)から`VerseTrade-Relay.exe`を取得し、

@@ -2,6 +2,10 @@
 
 [README](../README.md) · [日本語](QUICKSTART.ja.md)
 
+Version 0.6.5 adds preliminary recognition of red-screen trading terminals at
+some locations in the **STANTON system**. Coverage is partial; review names,
+prices, stock and cargo sizes against the image before submitting.
+
 ## 1. Install and set up
 
 Download `VerseTrade-Relay.exe` from [Releases](https://github.com/nakacch/VerseTrade-Relay/releases)

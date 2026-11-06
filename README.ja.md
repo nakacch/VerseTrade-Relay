@@ -7,9 +7,10 @@
 [English](README.md) · [ダウンロード](https://github.com/nakacch/VerseTrade-Relay/releases) ·
 [簡易マニュアル](docs/QUICKSTART.ja.md) · [不具合報告](https://github.com/nakacch/VerseTrade-Relay/issues)
 
-[0.6.4プレリリース](https://github.com/nakacch/VerseTrade-Relay/releases/tag/v0.6.4)では、
-日本語OCR辞書の初期登録と、商品一覧の端にある行の検出を改善しました。
-待機中のOCRエンジンを解放し、メモリの保持を抑えます。
+[0.6.5プレリリース](https://github.com/nakacch/VerseTrade-Relay/releases/tag/v0.6.5)では、
+**STANTON星系の一部の赤系交易端末**の読み取りに仮対応しました。
+STANTON星系の全端末への対応を意味するものではありません。
+UEXが価格を小数の文字列で返す場合に、送信履歴の状態を更新できない問題も修正しました。
 **Pyro星系の貿易ターミナルへの仮対応**も継続しています。
 在庫状態や貨物サイズには読み取り不足が残るため、元画像を確認して必要に応じて修正してください。
 
