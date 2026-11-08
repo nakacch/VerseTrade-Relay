@@ -117,6 +117,23 @@ You can also use **Select images** or drag and drop existing screenshots onto th
 app. Folder watching detects new files, so use these options for older screenshots.
 If a new image needs its destination confirmed, follow the on-screen prompt.
 
+### Card review displays
+
+In **Settings → Appearance**, choose the existing table, a table with commodity
+card images, or editing over card images. You can adjust row heights, field
+placement and overlay transparency. Card images follow OCR perspective correction;
+older captures without this information may need rereading. Select a field to
+check its individual evidence, which may come from a different capture.
+
+Where the field layout provides handles, drag a handle to move its control
+temporarily on that card. Hold Ctrl when
+starting the drag to save that field's shared position across cards and restarts.
+Esc cancels; focused handles also support arrow keys (Shift for larger steps,
+Ctrl to save a shared position). Reset shared positions in the layout settings.
+Use image-only display or click to enlarge when controls cover text. Hover or
+focus a transparent field to restore its opaque background. These display
+changes preserve review values and do not change report attachments.
+
 ## 3. Testing (optional) and production submission
 
 Testing is **optional, depending on the submission mode**. To skip it, select
