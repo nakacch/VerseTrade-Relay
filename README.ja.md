@@ -7,6 +7,10 @@
 [English](README.md) · [ダウンロード](https://github.com/nakacch/VerseTrade-Relay/releases) ·
 [簡易マニュアル](docs/QUICKSTART.ja.md) · [不具合報告](https://github.com/nakacch/VerseTrade-Relay/issues)
 
+[0.6.7プレリリース](https://github.com/nakacch/VerseTrade-Relay/releases/tag/v0.6.7)では、
+カード入力欄の自由配置、レビュー表示設定の整理、数値ドラッグによる誤変更防止を追加しました。
+端末候補は店舗名を太字にし、右揃えで表示します。
+
 [0.6.5プレリリース](https://github.com/nakacch/VerseTrade-Relay/releases/tag/v0.6.5)では、
 **STANTON星系の一部の赤系交易端末**の読み取りに仮対応しました。
 STANTON星系の全端末への対応を意味するものではありません。

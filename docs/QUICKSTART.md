@@ -120,8 +120,11 @@ If a new image needs its destination confirmed, follow the on-screen prompt.
 ### Card review displays
 
 In **Settings → Appearance**, choose the existing table, a table with commodity
-card images, or editing over card images. You can adjust row heights, field
-placement and overlay transparency. Card images follow OCR perspective correction;
+card images, or editing over card images. Settings show the controls relevant to
+the selected display; open **Display details** for its row height and position reset.
+For image editing, choose **Avoid image text**, **Free placement**, **Over recognized
+text** or **Fixed grid**. Field background transparency is available for free
+placement and text overlays. Card images follow OCR perspective correction;
 older captures without this information may need rereading. Select a field to
 check its individual evidence, which may come from a different capture.
 
@@ -133,6 +136,15 @@ Ctrl to save a shared position). Reset shared positions in the layout settings.
 Use image-only display or click to enlarge when controls cover text. Hover or
 focus a transparent field to restore its opaque background. These display
 changes preserve review values and do not change report attachments.
+
+Free placement keeps fields where you put them and permits overlap. Use **Adjust
+placement** in Review and **Move item** to select and move a hidden field, then
+choose **Finish placement** to resume editing. Free positions are saved separately
+from text avoidance and the fixed grid. At 100% transparency, text can be hard to
+read; hover, focus, or reduce transparency to inspect values.
+
+Dragging a displayed numeric value does not change it. Click the number to type
+an edit; keyboard steps and slider bars remain available.
 
 ## 3. Testing (optional) and production submission
 

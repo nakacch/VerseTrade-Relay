@@ -8,6 +8,10 @@ reviewing the results, and reporting commodity prices and stock to **UEX**.
 [日本語](README.ja.md) · [Download](https://github.com/nakacch/VerseTrade-Relay/releases) ·
 [Quick start](docs/QUICKSTART.md) · [Report an issue](https://github.com/nakacch/VerseTrade-Relay/issues)
 
+[0.6.7 preview](https://github.com/nakacch/VerseTrade-Relay/releases/tag/v0.6.7)
+adds free card-field placement, simpler review display settings and protection
+against accidental numeric changes while dragging. Terminal choices now emphasize shop names.
+
 [0.6.5 preview](https://github.com/nakacch/VerseTrade-Relay/releases/tag/v0.6.5)
 adds preliminary recognition of red-screen trading terminals at **some locations in the STANTON system**
 and fixes submission-history status refresh when UEX returns prices as decimal strings.
