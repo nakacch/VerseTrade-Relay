@@ -8,16 +8,12 @@ reviewing the results, and reporting commodity prices and stock to **UEX**.
 [日本語](README.ja.md) · [Download](https://github.com/nakacch/VerseTrade-Relay/releases) ·
 [Quick start](docs/QUICKSTART.md) · [Report an issue](https://github.com/nakacch/VerseTrade-Relay/issues)
 
-[0.6.7 preview](https://github.com/nakacch/VerseTrade-Relay/releases/tag/v0.6.7)
-adds free card-field placement, simpler review display settings and protection
-against accidental numeric changes while dragging. Terminal choices now emphasize shop names.
-
-[0.6.5 preview](https://github.com/nakacch/VerseTrade-Relay/releases/tag/v0.6.5)
-adds preliminary recognition of red-screen trading terminals at **some locations in the STANTON system**
-and fixes submission-history status refresh when UEX returns prices as decimal strings.
-This does not mean all STANTON terminals are supported.
-Preliminary support for **Pyro-system trading terminals** with orange screens continues.
-Check inventory status and cargo sizes carefully; some readings still need manual review.
+[0.6.8 preview](https://github.com/nakacch/VerseTrade-Relay/releases/tag/v0.6.8)
+starts new profiles in **Edit on card images** with free placement. Customize each
+field's text style, hold the right mouse button to inspect covered image text,
+and compare earlier/later evidence when a value changes between captures.
+Card image sizing and terminal choices are easier to compare, and the illustrated
+guides now cover all three review displays. Saved display preferences are preserved.
 
 ## See it in action
 
@@ -26,11 +22,18 @@ Check inventory status and cargo sizes carefully; some readings still need manua
 Testing can be skipped depending on the submission mode. The default test-first
 mode requires a successful test.
 
+![Default card-image editing with the selected price's evidence on the left and editable commodity cards on the right](assets/demo/review-en.png)
+
+First launch uses **Edit on card images**. Select a control to compare its value
+with the evidence on the left. Saved display preferences take priority.
+**Settings → Appearance** also offers a card-image table and the standard table.
+
 ![Consecutive captures at the same terminal add commodities to one list; hover a cell for its evidence, then review, test and submit](assets/demo/workflow-en.gif)
 
 When the next capture is recognized as the same terminal, new commodities are
-added to the current list. Hover individual cells to see their supporting image
-crops and OCR confidence, or select a cell for the persistent detail pane.
+added to the current list. Select a control to see its supporting crop and OCR
+confidence in the left details. In the standard table, cell tooltips also show
+this evidence. Hold the right mouse button on a card to temporarily hide its controls.
 
 Edited workflow demo: waiting time is shortened, local OCR results are replayed,
 and submission responses/history are simulated. No report was sent to UEX.
@@ -46,6 +49,9 @@ Prefer still images? See the [illustrated quick start](docs/QUICKSTART.md#2-read
   translation file, `global.ini`, and follow changes to that file automatically.
 - Check source images and field crops while editing commodities, prices, stock,
   inventory status and cargo sizes.
+- Switch between image overlays, a card-image table and the standard table;
+  customize card control placement and text styles.
+- See changes between captures in red and compare earlier/later crops in the details.
 - Spot low OCR confidence through text colors and differences from UEX reference
   prices/stock through colored borders and difference values.
 - Identify reporter edits with pencil markers and inspect the reasons locally.
@@ -129,6 +135,9 @@ Replacing/deleting the EXE does not remove these folders. See the manual before 
 
 ## Limitations
 
+- Recognition of red-screen terminals at some STANTON locations and orange Pyro
+  terminals remains preliminary. Coverage is partial; inspect inventory status
+  and cargo sizes carefully.
 - OCR can misread values. Check the terminal, environment, direction and every
   value before sending; ambiguous readings need manual review.
 - A production result may be unknown after connection failure. Reconcile it in

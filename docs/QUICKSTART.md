@@ -2,9 +2,9 @@
 
 [README](../README.md) · [日本語](QUICKSTART.ja.md)
 
-Version 0.6.5 adds preliminary recognition of red-screen trading terminals at
-some locations in the **STANTON system**. Coverage is partial; review names,
-prices, stock and cargo sizes against the image before submitting.
+This guide covers **0.6.8**. Recognition of red trading terminals at
+some **STANTON** locations and orange **Pyro** terminals remains preliminary.
+Review names, prices, stock and cargo sizes against the image before submitting.
 
 ## 1. Install and set up
 
@@ -49,7 +49,27 @@ download models. Model downloads and catalog refreshes are separate operations.
 
 ## 2. Read and review
 
-![The next screenshot at the same terminal automatically grows the list from four rows to seven](../assets/demo/continuous-en.png)
+### The default view
+
+![Default editing over commodity card images with the selected price's evidence on the left](../assets/demo/review-en.png)
+
+First launch uses **Edit on card images**, with **Free placement**, **100% field
+background transparency** and **200 px rows**. Commodity, price, stock, trade side,
+inventory status and cargo controls sit over each card. Existing saved display,
+layout and text preferences take priority. Hover or focus a transparent control
+to make its background opaque.
+
+Check the terminal, LIVE/PTU and monitoring status at the top. The upper left shows
+the viewed source image; the lower left shows the selected field's crop, OCR value,
+observations and editing controls. The commodity list scrolls vertically on the
+right. The details have their own scrollbar, and validation/submission controls
+stay at the bottom. Click the terminal name or **Choose terminal** if the detected
+location is wrong. Candidates are left-aligned and emphasize differing parts of
+their names. Correct automatic detection does not need manual confirmation.
+
+### Consecutive captures and evidence
+
+![The card view after a second capture, showing a total of seven rows and two images](../assets/demo/continuous-en.png)
 
 In this example, the first capture produces four rows for **Everus Harbor**.
 Scroll the in-game list and take another screenshot at the same terminal: when
@@ -59,17 +79,13 @@ and is kept as one row. Existing rows remain in place.
 
 ![A price-cell tooltip showing its source crop and OCR confidence](../assets/demo/tooltip-en.png)
 
-Hover an individual cell to inspect the **image crop supporting that value** and
-its OCR confidence. Enable **Show review tooltips** and **Show images in tooltips**
-in **Settings → Appearance** if they are off. These images follow each cell's evidence, which can come from
-different captures as the list grows.
-
-![Review page with seven recognized commodities and the selected price's evidence crop](../assets/demo/review-en.png)
-
-The selected price is highlighted in the table; its source crop and OCR value
-appear on the left. The original image stays above it, and validation/submission
-controls remain at the bottom. Click the image for a larger view and select cells
-to check each value. The example's game/OCR language is Japanese; the UI is English.
+In **Standard table**, hover a cell to inspect the **image crop supporting that
+value** and its OCR confidence. Enable **Show review tooltips** and **Show images
+in tooltips** in **Settings → Appearance** if they are off. Card controls use compact
+source/comparison hints; select a control for its crop and OCR confidence in the
+left details. Individual fields can have evidence from different captures.
+Click a source image or crop to enlarge it. The examples use Japanese game/OCR
+language with the English UI.
 
 1. Check that the app is watching your screenshot folder and that LIVE/PTU matches
    the environment you are playing in.
@@ -79,7 +95,7 @@ to check each value. The example's game/OCR language is Japanese; the UI is Engl
    that same terminal**. With **Automatically read captures** enabled, the app
    reads these screenshots continuously as they appear in the watched folder.
    Normally, no terminal selection in the app or manual image import is needed.
-4. Select a table cell to inspect its source image, crop, OCR observations and
+4. Select a card control or table cell to inspect its source image, crop, OCR observations and
    candidate values. Correct the commodity, UEX direction, price per SCU, stock SCU,
    inventory status and cargo sizes as necessary. Status runs from 1 (empty) to 7 (full).
 5. Review uncertain readings, pending items and UEX differences. The review filter
@@ -87,7 +103,7 @@ to check each value. The example's game/OCR language is Japanese; the UI is Engl
 6. Use image enlargement for unreadable details. Changing the viewed image does
    not automatically change the image attached to a report. Check attachments explicitly.
 
-To correct cargo sizes, select the **Cargo SCU** cell, then select any combination
+To correct cargo sizes, select the card's cargo control or the **Cargo SCU** cell, then select any combination
 of 1, 2, 4, 8, 16, 24 and 32 SCU in the left details and press **Confirm cargo sizes**.
 Scroll the details on smaller windows. **Cancel cargo edits** discards the pending
 selection. **Omit cargo sizes** omits only the size declaration, leaving price and
@@ -96,6 +112,10 @@ an empty selection is never reported as no available sizes.
 Confirmed sizes belong to each row and survive rereading and page changes.
 Different size sets may require separate requests. The submission confirmation
 shows the sizes per commodity. Automatic correction comments remain paused.
+
+In **Table with card images**, you can also confirm sizes directly with the cargo
+checkboxes. Clearing all checks omits the size declaration. Leaving the controls
+untouched does not confirm unreviewed OCR sizes.
 
 A pencil marker identifies a value changed by the reporter, including adopting a
 different OCR candidate or observation. Hover over the marker to inspect the reason
@@ -106,9 +126,24 @@ Automatic explanations of reporter changes and dictionary conversions are
 temporarily disabled, regardless of OCR confidence or dictionary source.
 Your own notes are still sent. Recorded evidence and change reasons remain available locally.
 
-OCR confidence text colors and UEX difference borders represent different checks.
-Low OCR confidence changes the value's text color; UEX price/stock differences
-are shown with colored borders and difference values.
+### Warning colors and changes between captures
+
+| Display | Meaning and action |
+| --- | --- |
+| OCR confidence text color | Reading confidence; inspect the crop and OCR value. |
+| UEX comparison border | A difference from reference price/stock; inspect details or hints. |
+| Red value and border, with before/after explanation | Later captures disagree on price, stock or inventory status. |
+| Pencil marker | A reporter edit, recorded separately from automatic updates. |
+
+If a later price, stock or inventory reading differs and has at least **85% OCR
+confidence**, the app adopts it and marks the field for review. Manually edited
+or reviewed values are protected, with a disagreement notice. Select an unresolved
+change to see **the earlier crop above the later crop** in the left details.
+Click either to enlarge its source and inspect why the value was adopted or
+protected. Missing evidence is identified rather than reconstructed.
+Use **Mark this field reviewed**, edit the value or adopt an observation/candidate
+to acknowledge known changes for that field. New disagreements can alert again.
+
 Manual corrections do not make the original OCR observation more confident.
 Re-recognition can update machine readings while preserving manual edits; verify
 the resulting draft. Reset/clear operations can remove the current work.
@@ -117,25 +152,59 @@ You can also use **Select images** or drag and drop existing screenshots onto th
 app. Folder watching detects new files, so use these options for older screenshots.
 If a new image needs its destination confirmed, follow the on-screen prompt.
 
-### Card review displays
+### Switch between three review displays
 
-In **Settings → Appearance**, choose the existing table, a table with commodity
-card images, or editing over card images. Settings show the controls relevant to
-the selected display; open **Display details** for its row height and position reset.
-For image editing, choose **Avoid image text**, **Free placement**, **Over recognized
-text** or **Fixed grid**. Field background transparency is available for free
-placement and text overlays. Card images follow OCR perspective correction;
-older captures without this information may need rereading. Select a field to
-check its individual evidence, which may come from a different capture.
+Choose **Settings → Appearance → Review display → Display mode**, then **Save
+settings**. Only the selected mode's controls are shown. Switching preserves
+review values, selection, evidence and report attachments.
+
+| Display mode | Use | Initial row height |
+| --- | --- | --- |
+| Edit on card images (default) | Edit controls over each image, close to the original text. | 200 px |
+| Table with card images | Image and editing columns side by side; **Stack fields** starts enabled. | 150 px |
+| Standard table | Conventional columns for commodity, side, price, stock and other values. | 54 px |
+
+![Card-image table with grouped commodity/side/inventory, stock/price and cargo controls](../assets/demo/image-table-en.png)
+
+The image table uses a shared card scale based on row height. Scroll horizontally
+to reach columns that do not fit. Cargo checkboxes work directly in the table.
+
+![Standard table showing the same seven commodities and selected price evidence](../assets/demo/standard-table-en.png)
+
+Card images use OCR's perspective correction. Individual values can come from
+other captures, so also inspect the selected field's details. Older captures
+without correction information may need rereading.
+
+### Card placement and temporarily hiding controls
+
+![Appearance settings with free placement, transparency and display details](../assets/demo/display-settings-en.png)
+
+Image editing has four placement modes. **Display details** contains row height
+and position reset for the selected display.
+
+| Placement mode | Behavior |
+| --- | --- |
+| Free placement (default) | Keeps the chosen positions and allows overlap. |
+| Avoid image text | Automatically uses text positions and available space. |
+| Over recognized text | Follows recognized text; fields cannot be moved manually. |
+| Fixed grid | Starts from a regular arrangement, adjustable with handles. |
+
+Free placement and text overlays allow background transparency from 0% (opaque)
+to 100% (transparent). Text and warning borders remain visible; hovered or focused
+controls get opaque backgrounds.
+
+![Holding the right mouse button hides controls on one card to expose its original text](../assets/demo/overlay-clear-en.png)
+
+**Hold the right mouse button on a card image** to hide that card's controls until
+release. Click an image to enlarge it. These actions preserve values and placement.
 
 Where the field layout provides handles, drag a handle to move its control
 temporarily on that card. Hold Ctrl when
 starting the drag to save that field's shared position across cards and restarts.
 Esc cancels; focused handles also support arrow keys (Shift for larger steps,
 Ctrl to save a shared position). Reset shared positions in the layout settings.
-Use image-only display or click to enlarge when controls cover text. Hover or
-focus a transparent field to restore its opaque background. These display
-changes preserve review values and do not change report attachments.
+Reset clears shared and temporary positions; discarding settings does not restore
+temporary positions. These display changes preserve values and report attachments.
 
 Free placement keeps fields where you put them and permits overlap. Use **Adjust
 placement** in Review and **Move item** to select and move a hidden field, then
@@ -145,6 +214,22 @@ read; hover, focus, or reduce transparency to inspect values.
 
 Dragging a displayed numeric value does not change it. Click the number to type
 an edit; keyboard steps and slider bars remain available.
+
+### Field text styles
+
+![Commodity text-style dialog with font, size, alignment, width and overflow options](../assets/demo/field-style-en.png)
+
+Open **Field display settings** above the card list or under **Display details**,
+then choose commodity, price, stock or another field kind. Preview the font, size
+(8–36 px), bold/italic, alignment, width and overflow. Each style applies to **that
+field kind across all overlay rows**. Wrapping supports up to three lines; numeric
+price and stock fields cannot wrap. Unavailable fonts use Standard for display.
+Scroll the dialog body to reach the preview; Save and Cancel stay at the bottom.
+
+The dialog's **Save** saves **only that field's display settings**, leaving other
+pending settings untouched. **Cancel**, × or Esc restores the previous style.
+**Reset this field style** previews the default; use **Save** to keep it. Styling
+does not change OCR values, report contents or a successful test's validity.
 
 ## 3. Testing (optional) and production submission
 
@@ -184,9 +269,43 @@ group was not accepted before recovery. A partial result is not proof of rejecti
 ## 4. Settings and history
 
 Settings has seven groups of tabs: appearance/images, UEX comparison, submission,
-OCR, monitoring/language, app updates and UEX connection. Resetting a page affects
+OCR, monitoring/language, app updates and UEX connection.
+
+| Tab | Main controls |
+| --- | --- |
+| Appearance | UI language, theme, review display/placement/styles and tooltips. |
+| Comparison | Reference retrieval and price/stock comparisons. |
+| Sending | Test-first, optional-test and production-only modes; behavior after sending. |
+| OCR | Automatic/manual reading language, per-language models and OCR aliases. |
+| Captures | LIVE/PTU, watch folder and each environment's game translation file. |
+| Updates | Check/download updates, notifications and skipped versions. |
+| UEX connection | User secret and commodity/terminal catalog refresh. |
+
+Resetting a page affects
 that page's unsaved edits; all-settings reset is broader. Undo reset, Save and the
 unsaved-changes prompt let you choose what to keep. Themes preview immediately.
+
+### Register recurring OCR mistakes
+
+Open **OCR → User OCR reading dictionary → Edit reading dictionary**, then **Add reading entry**. Choose
+commodity, location, terminal or inventory status and the correct target. Check
+the game language and LIVE/PTU scope, then enter one OCR spelling per line.
+Inventory entries also need the buying/selling direction. Approximate matching
+is set per spelling and starts off for new entries.
+
+Use **Save dictionary** to commit entries. The dictionary saves separately from
+app preferences; **Save settings** does not save it. The list and editor scroll
+independently, with a draggable divider. Disable or delete incorrect entries and
+save again. Original OCR text remains available for reviewing evidence/candidates.
+
+### Recover folder monitoring
+
+If the top status shows a monitoring error, open **Watch details** to inspect the
+saved folder and error. **Open watch settings** takes you to **Captures** to correct
+and save the path. Monitoring resumes automatically when the folder becomes
+readable. Use **Select images** for existing captures.
+
+### Submission history
 
 History is a separate page with all/test/production/unknown filters and report
 status tools. Preserve history during updates, especially unresolved submissions.
@@ -238,6 +357,9 @@ To uninstall:
 | Required support files fail to load | Install Microsoft's x64 Visual C++ runtime; clear an obsolete explicit DLL setting, close and restart. Check cache write access. |
 | Missing Japanese text | Check that Japanese-capable Windows UI fonts are installed. Fonts are not bundled. |
 | Incorrect names/locations | Check the selected localization, environment, catalog and terminal; inspect observations and candidates. |
+| The display differs from this guide | Saved preferences take priority. Choose a display under Appearance → Review display and save. |
+| Card controls overlap | Use Adjust placement to select and move a field, or change display/transparency. Hold the right mouse button to inspect the image text. |
+| New captures are not imported | Check monitoring status/Watch details, the saved folder and automatic reading. Import existing images manually. |
 | Submit is disabled | Resolve validation errors, pending items, missing credentials or a missing/stale successful test in a test-required mode; inspect the shown reason. |
 | Unknown production result | Reconcile in History before attempting a resend. |
 | App closes unexpectedly | Check `%APPDATA%\VerseTrade-Relay\logs\versetrade-relay.log` and report the version and reproduction steps. |
