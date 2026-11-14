@@ -2,7 +2,8 @@
 
 [README](../README.md) · [日本語](QUICKSTART.ja.md)
 
-This guide covers **0.6.8**. Recognition of red trading terminals at
+This guide and its images follow **0.6.9 Preview**; saved settings take priority.
+Recognition of red trading terminals at
 some **STANTON** locations and orange **Pyro** terminals remains preliminary.
 Review names, prices, stock and cargo sizes against the image before submitting.
 
@@ -11,6 +12,14 @@ Review names, prices, stock and cargo sizes against the image before submitting.
 Download `VerseTrade-Relay.exe` from [Releases](https://github.com/nakacch/VerseTrade-Relay/releases)
 and double-click it. Required support files and license notices are prepared
 automatically in your user data folder. Microsoft Visual C++ x64 runtime must already be installed.
+
+Welcome setup has four steps: **interface language/theme → game dictionaries and
+watch folder → recognition language/models → UEX catalog, reference updates and
+game version**. Finish with **Save and start**, or choose **Set up later**.
+Dictionaries and watching are optional; an empty watch folder means manual import.
+On smaller windows, scroll the dialog body vertically to reach the remaining settings.
+
+![Step two of welcome setup: LIVE/PTU, optional translation files and watch folder](../assets/demo/welcome-en.png)
 
 In welcome setup, choose the environment you play in (**LIVE** or **PTU**).
 Use **Find standard game installations** or **Browse game folder** to find your
@@ -36,6 +45,12 @@ an external Tesseract model, then use **Apply to settings** and **Save settings*
 **Reset this language** resets only that language's model choices. **Cancel**
 discards dialog edits. Model downloads do not save your settings automatically.
 
+![OCR settings showing Max parallel jobs: default 8, range 1–16](../assets/demo/reading-settings-en.png)
+
+**Max parallel jobs** controls how many images can be read concurrently: **default
+8, range 1–16**. Saved values are preserved. Lower it and save settings if your PC
+is under heavy load.
+
 ONNX support is included in the EXE, and the app downloads your selected models
 for you. You can reopen first-run setup from Settings.
 
@@ -51,19 +66,21 @@ download models. Model downloads and catalog refreshes are separate operations.
 
 ### The default view
 
-![Default editing over commodity card images with the selected price's evidence on the left](../assets/demo/review-en.png)
+![Default card-image table with selected price evidence, image/editing columns, review filters and sorting](../assets/demo/review-en.png)
 
-First launch uses **Edit on card images**, with **Free placement**, **100% field
-background transparency** and **200 px rows**. Commodity, price, stock, trade side,
-inventory status and cargo controls sit over each card. Existing saved display,
-layout and text preferences take priority. Hover or focus a transparent control
-to make its background opaque.
+First launch uses **Table with card images**, **150 px rows** and **Stack fields**
+enabled. Images sit beside grouped commodity/side/status, stock/price and cargo
+editing columns. Existing saved display, layout and text preferences take priority.
+Scroll horizontally along the bottom of the list to reach the rightmost cargo
+column, including at 1050 × 700.
+
+![Default appearance settings: Table with card images, stacked fields and 150 px rows](../assets/demo/default-settings-en.png)
 
 Check the terminal, LIVE/PTU and monitoring status at the top. The upper left shows
 the viewed source image; the lower left shows the selected field's crop, OCR value,
 observations and editing controls. The commodity list scrolls vertically on the
 right. The details have their own scrollbar, and validation/submission controls
-stay at the bottom. Click the terminal name or **Choose terminal** if the detected
+stay at the bottom. Click the terminal name button if the detected
 location is wrong. Candidates are left-aligned and emphasize differing parts of
 their names. Correct automatic detection does not need manual confirmation.
 
@@ -103,21 +120,58 @@ language with the English UI.
 6. Use image enlargement for unreadable details. Changing the viewed image does
    not automatically change the image attached to a report. Check attachments explicitly.
 
-To correct cargo sizes, select the card's cargo control or the **Cargo SCU** cell, then select any combination
-of 1, 2, 4, 8, 16, 24 and 32 SCU in the left details and press **Confirm cargo sizes**.
-Scroll the details on smaller windows. **Cancel cargo edits** discards the pending
-selection. **Omit cargo sizes** omits only the size declaration, leaving price and
-inventory reporting available. Unreviewed OCR sizes are not sent automatically;
-an empty selection is never reported as no available sizes.
-Confirmed sizes belong to each row and survive rereading and page changes.
-Different size sets may require separate requests. The submission confirmation
-shows the sizes per commodity. Automatic correction comments remain paused.
+### Opt in to cargo-size reporting
 
-In **Table with card images**, you can also confirm sizes directly with the cargo
-checkboxes. Clearing all checks omits the size declaration. Leaving the controls
-untouched does not confirm unreviewed OCR sizes.
+Cargo-size reporting is **off by default for each item**. Reading, selecting or
+confirming sizes does not enable reporting.
 
-A pencil marker identifies a value changed by the reporter, including adopting a
+1. Select any combination of 1, 2, 4, 8, 16, 24 and 32 SCU in the cargo column.
+   In the left details, finish editing with **Confirm cargo sizes**.
+2. Enable **Report cargo sizes** in the details, or **Report** / **Report sizes** in the table.
+   Check **To send** in the details for the sizes that will actually be reported.
+3. Check each commodity's sizes in the submission confirmation. Different sets may require separate requests.
+
+Scroll the list horizontally and the left details vertically when needed.
+**Cancel cargo edits** discards pending edits. Turning **Report cargo sizes** off
+retains the selected sizes. **Omit cargo sizes** omits the size declaration while
+leaving price/stock reporting available. An empty selection never reports no
+available sizes. Confirmed manual sizes and reporting choices survive rereading
+and page changes. Changed report contents require another test in test-first mode.
+Automatic correction comments remain paused.
+
+Amber/red cargo numbers flag OCR readings needing review; bold/outlined numbers
+indicate UEX differences; checks indicate selected sizes. Review these separately
+from the **Report cargo sizes** switch.
+
+### Filter, sort and remove items
+
+**Needs review**, **Low confidence** and **Image differences** can be selected
+together. Multiple selections show items matching **any selected reason**.
+Choose **All** or turn every reason off to show all items. Reason counts overlap;
+use **X/Y shown** for the displayed count. Low confidence means an uncorrected OCR
+field is below 70% or has unknown confidence; image differences are unresolved changes between captures.
+Needs review also includes input errors and UEX warnings. Confidence does not
+guarantee accuracy.
+
+**Sort** offers reading order, needs review first, lowest OCR confidence, image
+differences first and commodity name. It preserves values and selection.
+**Hidden items remain in the submission.**
+
+To exclude an item, open **Delete item**, check the selected name and trade side,
+then **Remove selected item from submission**. Open **Manage deleted items…** in
+the same menu and **Restore to table** to recover its edits/evidence and clear
+the filters. Retest after restoration in test-first mode. **＋ Add item** is also
+above the list.
+
+### Image and whole-review actions
+
+Use **Add images…** in the import row, or **Import waiting capture** for queued
+images. **Enlarge image** and **Read again…** below the source image act on the
+viewed image; rereading retains manual edits. **Clear table and captures…** at the
+upper right opens a confirmation. **Review actions** offers restoration of the
+previous review when available.
+
+Bold text and a pencil marker identify a value changed by the reporter, including adopting a
 different OCR candidate or observation. Hover over the marker to inspect the reason
 and the recorded before/after values. Confirming an unchanged value does not create
 a reporter-change marker. Reverting to the original value removes that change's marker.
@@ -130,10 +184,10 @@ Your own notes are still sent. Recorded evidence and change reasons remain avail
 
 | Display | Meaning and action |
 | --- | --- |
-| OCR confidence text color | Reading confidence; inspect the crop and OCR value. |
+| OCR warning color and bold text | Uncorrected reading needing review; inspect the crop and OCR value. |
 | UEX comparison border | A difference from reference price/stock; inspect details or hints. |
 | Red value and border, with before/after explanation | Later captures disagree on price, stock or inventory status. |
-| Pencil marker | A reporter edit, recorded separately from automatic updates. |
+| Bold value and pencil marker | A reporter edit, recorded separately from automatic updates. |
 
 If a later price, stock or inventory reading differs and has at least **85% OCR
 confidence**, the app adopts it and marks the field for review. Manually edited
@@ -148,7 +202,7 @@ Manual corrections do not make the original OCR observation more confident.
 Re-recognition can update machine readings while preserving manual edits; verify
 the resulting draft. Reset/clear operations can remove the current work.
 
-You can also use **Select images** or drag and drop existing screenshots onto the
+You can also use **Add images…** or drag and drop existing screenshots onto the
 app. Folder watching detects new files, so use these options for older screenshots.
 If a new image needs its destination confirmed, follow the on-screen prompt.
 
@@ -160,9 +214,9 @@ review values, selection, evidence and report attachments.
 
 | Display mode | Use | Initial row height |
 | --- | --- | --- |
-| Edit on card images (default) | Edit controls over each image, close to the original text. | 200 px |
-| Table with card images | Image and editing columns side by side; **Stack fields** starts enabled. | 150 px |
-| Standard table | Conventional columns for commodity, side, price, stock and other values. | 54 px |
+| Table with card images (default) | Image and editing columns side by side; **Stack fields** starts enabled. | 150 px |
+| Edit on card images | Edit controls over each image, close to the original text. | 200 px |
+| Standard table | Conventional columns for commodity, side, price, stock and other values. | 72 px |
 
 ![Card-image table with grouped commodity/side/inventory, stock/price and cargo controls](../assets/demo/image-table-en.png)
 
@@ -176,6 +230,11 @@ other captures, so also inspect the selected field's details. Older captures
 without correction information may need rereading.
 
 ### Card placement and temporarily hiding controls
+
+This section applies after switching to **Edit on card images**. Its defaults
+are Free placement, 100% field background transparency and 200 px rows.
+
+![Alternative overlay editing with controls over commodity card images](../assets/demo/card-overlay-en.png)
 
 ![Appearance settings with free placement, transparency and display details](../assets/demo/display-settings-en.png)
 
@@ -276,7 +335,7 @@ OCR, monitoring/language, app updates and UEX connection.
 | Appearance | UI language, theme, review display/placement/styles and tooltips. |
 | Comparison | Reference retrieval and price/stock comparisons. |
 | Sending | Test-first, optional-test and production-only modes; behavior after sending. |
-| OCR | Automatic/manual reading language, per-language models and OCR aliases. |
+| OCR | Automatic/manual reading language, per-language models, Max parallel jobs (default 8, range 1–16) and OCR aliases. |
 | Captures | LIVE/PTU, watch folder and each environment's game translation file. |
 | Updates | Check/download updates, notifications and skipped versions. |
 | UEX connection | User secret and commodity/terminal catalog refresh. |
@@ -303,7 +362,7 @@ save again. Original OCR text remains available for reviewing evidence/candidate
 If the top status shows a monitoring error, open **Watch details** to inspect the
 saved folder and error. **Open watch settings** takes you to **Captures** to correct
 and save the path. Monitoring resumes automatically when the folder becomes
-readable. Use **Select images** for existing captures.
+readable. Use **Add images…** for existing captures.
 
 ### Submission history
 

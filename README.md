@@ -8,12 +8,18 @@ reviewing the results, and reporting commodity prices and stock to **UEX**.
 [日本語](README.ja.md) · [Download](https://github.com/nakacch/VerseTrade-Relay/releases) ·
 [Quick start](docs/QUICKSTART.md) · [Report an issue](https://github.com/nakacch/VerseTrade-Relay/issues)
 
-[0.6.8 preview](https://github.com/nakacch/VerseTrade-Relay/releases/tag/v0.6.8)
-starts new profiles in **Edit on card images** with free placement. Customize each
-field's text style, hold the right mouse button to inspect covered image text,
-and compare earlier/later evidence when a value changes between captures.
-Card image sizing and terminal choices are easier to compare, and the illustrated
-guides now cover all three review displays. Saved display preferences are preserved.
+**[0.6.9 Preview](https://github.com/nakacch/VerseTrade-Relay/releases/tag/v0.6.9) — changes since 0.6.8:**
+
+- Start new profiles in **Table with card images**, with 150 px rows and stacked fields.
+  Saved display preferences are preserved.
+- Find image and item actions beside their targets; combine review filters, sort
+  rows, and restore deleted items with their edits and evidence.
+- Cargo sizes are reported only after enabling **Report cargo sizes** for each item.
+  Selecting sizes alone does not enable reporting, including for older saved reviews.
+- Read low-confidence OCR warnings, differences between captures and manual edits
+  more easily through bold values.
+- OCR concurrency now defaults to **8**, with a configurable range of **1–16**;
+  saved values are preserved. The illustrated English/Japanese guides are also updated.
 
 ## See it in action
 
@@ -22,18 +28,19 @@ guides now cover all three review displays. Saved display preferences are preser
 Testing can be skipped depending on the submission mode. The default test-first
 mode requires a successful test.
 
-![Default card-image editing with the selected price's evidence on the left and editable commodity cards on the right](assets/demo/review-en.png)
+![Default card-image table with price evidence on the left, images and editing columns on the right, and review filters and sorting above](assets/demo/review-en.png)
 
-First launch uses **Edit on card images**. Select a control to compare its value
-with the evidence on the left. Saved display preferences take priority.
-**Settings → Appearance** also offers a card-image table and the standard table.
+First launch uses **Table with card images**, 150 px rows and stacked fields.
+Select a value to inspect evidence on the left. On narrow windows, scroll horizontally
+to reach the cargo column. Saved display preferences take priority. **Settings → Appearance**
+also offers image overlay editing and the standard table.
 
 ![Consecutive captures at the same terminal add commodities to one list; hover a cell for its evidence, then review, test and submit](assets/demo/workflow-en.gif)
 
 When the next capture is recognized as the same terminal, new commodities are
 added to the current list. Select a control to see its supporting crop and OCR
 confidence in the left details. In the standard table, cell tooltips also show
-this evidence. Hold the right mouse button on a card to temporarily hide its controls.
+this evidence. In overlay editing, hold the right mouse button on a card to temporarily hide its controls.
 
 Edited workflow demo: waiting time is shortened, local OCR results are replayed,
 and submission responses/history are simulated. No report was sent to UEX.
@@ -51,10 +58,14 @@ Prefer still images? See the [illustrated quick start](docs/QUICKSTART.md#2-read
   inventory status and cargo sizes.
 - Switch between image overlays, a card-image table and the standard table;
   customize card control placement and text styles.
+- Combine Needs review, Low confidence and Image differences filters; sort by
+  review priority or name. Hidden rows remain in the submission. Remove items
+  through **Delete item** and restore them with their edits and evidence.
+- Cargo-size reporting starts off. Enable **Report cargo sizes** for each item to include it.
 - See changes between captures in red and compare earlier/later crops in the details.
-- Spot low OCR confidence through text colors and differences from UEX reference
+- Spot uncorrected low-confidence values through warning colors and bold text, and differences from UEX reference
   prices/stock through colored borders and difference values.
-- Identify reporter edits with pencil markers and inspect the reasons locally.
+- Identify reporter edits with bold values and pencil markers and inspect the reasons locally.
   Automatic report comments remain temporarily disabled; your own notes are preserved.
 - Optional test reports (depending on submission mode), production submission and history.
 - English/Japanese interface; System, Light, Dark and Slate themes.
