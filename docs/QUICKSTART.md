@@ -2,7 +2,7 @@
 
 [README](../README.md) · [日本語](QUICKSTART.ja.md)
 
-This guide and its images follow **0.6.9 Preview**; saved settings take priority.
+This guide follows **0.6.10 Preview**; workflow images show 0.6.9. Saved settings take priority.
 Recognition of red trading terminals at
 some **STANTON** locations and orange **Pyro** terminals remains preliminary.
 Review names, prices, stock and cargo sizes against the image before submitting.
@@ -149,7 +149,8 @@ from the **Report cargo sizes** switch.
 together. Multiple selections show items matching **any selected reason**.
 Choose **All** or turn every reason off to show all items. Reason counts overlap;
 use **X/Y shown** for the displayed count. Low confidence means an uncorrected OCR
-field is below 70% or has unknown confidence; image differences are unresolved changes between captures.
+field is below 70%, has unknown confidence, or has conflicting commodity-name candidates;
+image differences are unresolved changes between captures.
 Needs review also includes input errors and UEX warnings. Confidence does not
 guarantee accuracy.
 
@@ -205,6 +206,23 @@ the resulting draft. Reset/clear operations can remove the current work.
 You can also use **Add images…** or drag and drop existing screenshots onto the
 app. Folder watching detects new files, so use these options for older screenshots.
 If a new image needs its destination confirmed, follow the on-screen prompt.
+
+### Conflicting commodity names and UEX refresh
+
+A commodity name can appear in bold error-colored text even with a high OCR score
+when retained candidates identify different commodities. Check the competing names
+in the left details or tooltips, then choose the correct commodity or use
+**Mark this field reviewed** for the name. Price or stock edits do not confirm the
+name. Unconfirmed names remain pending and prevent submission; the original OCR
+score is preserved. Rereading the same card keeps your explicit name decision.
+A missing warning does not guarantee the name is correct.
+
+With automatic comparison refresh enabled in **Settings → UEX comparison**, new
+items trigger updates during OCR after each **6 items** by default and again when
+all captures finish. Set **Items per UEX refresh** from **1–1000**. A resolved LIVE
+terminal is required; PTU is excluded. The status bar shows whether comparison data
+is fetching, missing, failed or needs refreshing. Use **Update UEX comparison** to
+retry a failed request; existing reference data and edits remain available.
 
 ### Switch between three review displays
 

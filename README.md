@@ -8,18 +8,16 @@ reviewing the results, and reporting commodity prices and stock to **UEX**.
 [日本語](README.ja.md) · [Download](https://github.com/nakacch/VerseTrade-Relay/releases) ·
 [Quick start](docs/QUICKSTART.md) · [Report an issue](https://github.com/nakacch/VerseTrade-Relay/issues)
 
-**[0.6.9 Preview](https://github.com/nakacch/VerseTrade-Relay/releases/tag/v0.6.9) — changes since 0.6.8:**
+**[0.6.10 Preview](https://github.com/nakacch/VerseTrade-Relay/releases/tag/v0.6.10) — changes since 0.6.9:**
 
-- Start new profiles in **Table with card images**, with 150 px rows and stacked fields.
-  Saved display preferences are preserved.
-- Find image and item actions beside their targets; combine review filters, sort
-  rows, and restore deleted items with their edits and evidence.
-- Cargo sizes are reported only after enabling **Report cargo sizes** for each item.
-  Selecting sizes alone does not enable reporting, including for older saved reviews.
-- Read low-confidence OCR warnings, differences between captures and manual edits
-  more easily through bold values.
-- OCR concurrency now defaults to **8**, with a configurable range of **1–16**;
-  saved values are preserved. The illustrated English/Japanese guides are also updated.
+- Refresh UEX comparison during OCR after each group of added items (default **6**,
+  configurable **1–1000**) and again when reading finishes, for resolved LIVE terminals.
+- See comparison fetch status and a highlighted manual refresh action when needed.
+  Failed requests preserve existing reference data and edits.
+- Spot conflicting commodity-name candidates in bold error-colored text, even with
+  a high OCR score. Choose the correct commodity or mark the name reviewed before sending.
+- Keep ambiguous cards separate and retain explicit name decisions when rereading
+  the same card. Both English and Japanese guides explain the new behavior.
 
 ## See it in action
 
